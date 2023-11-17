@@ -26,10 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    // bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${poppins.className} ${JetBrains.variable} bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]`}
-      >
+      <body className={`${poppins.className} ${JetBrains.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -38,7 +37,6 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-
       </body>
     </html>
   );
