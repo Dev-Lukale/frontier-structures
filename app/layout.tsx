@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Poppins } from "next/font/google";
+import { Big_Shoulders_Display, JetBrains_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
-// const Big_Shoulders = Big_Shoulders_Display({ subsets: ["latin"] });
+import Navbar from "@/components/nav/Navbar";
+const Big_Shoulders = Big_Shoulders_Display({
+  subsets: ["latin"],
+  variable: "--font-big-shoulders",
+});
 const poppins = Poppins({
   subsets: [],
   // variable: "--font-poppins",
@@ -28,13 +32,16 @@ export default function RootLayout({
   return (
     // bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} ${JetBrains.variable}`}>
+      <body
+        className={`${poppins.className} ${JetBrains.variable} ${Big_Shoulders.variable}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

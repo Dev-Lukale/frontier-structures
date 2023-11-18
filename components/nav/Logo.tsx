@@ -19,7 +19,7 @@ function Logo({}: Props) {
           />
         </svg>
       </span>
-      <span className="font-bold text-primary">Frontier</span>
+      <span className="font-bold text-primary uppercase">Frontier Structures</span>
     </div>
   );
 }

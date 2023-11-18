@@ -23,7 +23,7 @@ const Testimonial = (props: Props) => {
       </div>
       {/* Testimonial quote */}
       <blockquote className="mt-2">
-        <p className="text-xl font-medium text-primary">
+        <p className="text-xl font-medium text-primary font-jetbrains">
           “Here you can write a nice testimonial for your product!”
         </p>
       </blockquote>

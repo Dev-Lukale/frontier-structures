@@ -10,10 +10,10 @@ const PunchLine = (props: Props) => {
       {/* Other content */}
       <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
         <div>
-          <p className="text-2xl font-medium tracking-tight text-primary sm:text-4xl">
+          <p className="text-2xl font-medium tracking-tight text-primary sm:text-4xl ">
             I am a short heading
           </p>
-          <p className="max-w-xl mt-4 text-base tracking-tight text-gray-600">
+          <p className="max-w-xl mt-4 text-base tracking-tight text-secondary">
             Use this paragraph to share information about your company or
             products. Make it engaging and interesting, and showcase your
             brand's personality. Thanks for visiting our website!

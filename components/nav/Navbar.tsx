@@ -35,7 +35,7 @@ const Navbar = (props: Props) => {
     };
 
     return (
-      <nav className=" w-full sticky top-5 z-40 backdrop-filter backdrop-blur-xl px-6">
+      <nav className=" w-full sticky top-1 z-40 backdrop-filter backdrop-blur-xl px-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between py-6  ">
           <Logo />
           <div className="hidden lg:block">
@@ -44,7 +44,7 @@ const Navbar = (props: Props) => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm font-semibold text-primary"
+                    className="text-sm font-semibold text-primary  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer py-2"
                   >
                     {item.name}
                   </Link>
@@ -62,7 +62,7 @@ const Navbar = (props: Props) => {
           </div>
           {isMenuOpen && (
             <div className="absolute inset-x-0 top-0  origin-top-right transform p-2 transition lg:hidden ">
-              <div className="divide-y-2 divide-gray-500 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-secondary ">
+              <div className="divide-y-2 divide-gray-500 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-background ">
                 <div className="px-5 pb-6 pt-5 ">
                   <div className="flex items-center justify-between">
                     <Logo />
