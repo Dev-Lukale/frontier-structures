@@ -5,7 +5,7 @@ type Props = {}
 
 function Logo({}: Props) {
   return (
-    <Link href="/" className="inline-flex items-center space-x-2">
+    <Link href="/" target='blank' className="inline-flex items-center space-x-2">
       <span>
         <svg
           width="30"
