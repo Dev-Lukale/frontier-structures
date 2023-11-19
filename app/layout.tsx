@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/nav/Navbar";
+import Footer from "@/components/footer/Footer";
 const Big_Shoulders = Big_Shoulders_Display({
   subsets: ["latin"],
   variable: "--font-big-shoulders",
@@ -42,7 +43,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
+         
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
