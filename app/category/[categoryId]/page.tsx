@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 
-import Images from "./Images";
+
+import Images from "../../../components/Images";
 import { sectionLinks } from "@/config/sectionConfig";
 import Link from "next/link";
 

@@ -17,12 +17,12 @@ import {
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+  const [prevScrollpos, setPrevScrollpos] = useState(globalThis.window?.scrollY);
   const [topOffset, setTop] = useState(0);
   useEffect(() => {
     // Function to handle scroll events
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = globalThis.window?.scrollY;
       if (prevScrollpos > currentScrollPos) {
         setTop(0); // Show navbar
       } else {
