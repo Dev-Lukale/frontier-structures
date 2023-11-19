@@ -67,14 +67,14 @@ const Navbar = (props: Props) => {
             <div className="px-5 pb-6 pt-5 ">
               <div className="flex items-center justify-between">
                 <Logo />
-                <Dialog className="h-[24rem]">
+                <Dialog >
                   <DialogTrigger asChild className="-mr-2">
                     <div className="lg:hidden ">
                       <Menu className="h-6 w-6 cursor-pointer text-primary" />
                     </div>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
-                    <nav className="grid gap-y-8">
+                    <nav className="flex flex-col  gap-y-8 ">
                       {navItems.map((item) => (
                         <DialogClose key={item.name} asChild>
                           <Link
