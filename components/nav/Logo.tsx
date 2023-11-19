@@ -1,10 +1,11 @@
+import Link from 'next/link';
 import React from 'react'
 
 type Props = {}
 
 function Logo({}: Props) {
   return (
-    <div className="inline-flex items-center space-x-2">
+    <Link href="/" className="inline-flex items-center space-x-2">
       <span>
         <svg
           width="30"
@@ -20,7 +21,7 @@ function Logo({}: Props) {
         </svg>
       </span>
       <span className="font-bold text-primary uppercase">Frontier Structures</span>
-    </div>
+    </Link>
   );
 }
 
