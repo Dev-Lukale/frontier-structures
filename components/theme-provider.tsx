@@ -11,7 +11,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   const { setTheme, theme } = useTheme();
   useEffect(() => {
     setTheme("system");
-  }, []);
+  });
   return (
     <NextThemesProvider {...props}>
       <NextUIProvider>{children}</NextUIProvider>
