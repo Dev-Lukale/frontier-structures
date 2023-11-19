@@ -40,7 +40,7 @@ const Navbar = (props: Props) => {
 
   return (
     <nav
-      className={`w-full sticky z-40 backdrop-filter backdrop-blur-xl px-6 transition-all duration-1000 ease-in-out `}
+      className={`w-full sticky z-40 backdrop-filter backdrop-blur-xl px-6 transition-all duration-500 ease-in-out `}
       style={{ top: `${topOffset}px` }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between py-6  ">
