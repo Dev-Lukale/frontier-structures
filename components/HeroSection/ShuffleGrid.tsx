@@ -11,7 +11,7 @@ const ShuffleGrid = (props: Props) => {
     shuffleSquares();
 
     return () => clearTimeout(timeoutRef.current);
-  }, []);
+  });
 
   const shuffleSquares = () => {
     setSquares(generateSquares());
