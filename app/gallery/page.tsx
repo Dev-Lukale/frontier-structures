@@ -1,23 +1,22 @@
-import Images from '@/components/Images';
-import React from 'react'
+import React from "react";
+import GalleryImages from "./Images";
 
-type Props = {}
+
+type Props = {};
 
 const Page = (props: Props) => {
   return (
     <div className="min-h-screen  p-6   bg-background  mx-auto max-w-7xl">
-      <Buttons />
-      
-      <Images/>
+      {/* <Buttons /> */}
+
+      <GalleryImages />
     </div>
   );
-}
+};
 
-export default Page
-
+export default Page;
 
 const Buttons = () => {
-
   return (
     <div className="flex items-center justify-center py-4 md:py-8 flex-wrap fixed top-[4.4rem] lg:top-[4rem] z-50">
       <button
@@ -52,4 +51,4 @@ const Buttons = () => {
       </button>
     </div>
   );
-}
+};

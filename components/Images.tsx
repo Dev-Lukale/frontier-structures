@@ -5,12 +5,6 @@ import { Image } from "@nextui-org/react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { galleryItems } from "@/config/gallery";
 type Props = {};
-const masonryOptions = {
-  fitWidth: false,
-  columnWidth: 300,
-  gutter: 30,
-  itemSelector: ".photo-item",
-};
 
 const Images = (props: Props) => {
   return (
