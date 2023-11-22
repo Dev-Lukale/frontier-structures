@@ -21,7 +21,7 @@ const About = (props: Props) => {
                 We are the large business expert in Europe and Asia
               </h2>
               <p className="mb-10 text-secondary ">
-                Lorem ipsum dor amet Lorem ipsum dor amet is a dummy text .Lorem
+                Lorem ipsum dor amet Lorem ipsum d amet is a dummy text .Lorem
                 ipsum dor amet isopinus ipaino amet Lorem ipsum dor amet is a
                 dummy text
               </p>
