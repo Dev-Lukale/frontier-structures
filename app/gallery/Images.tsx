@@ -6,24 +6,26 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useInView } from "react-intersection-observer";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { randomUUID } from "crypto";
 
 type Props = {};
 
 const GalleryImages = (props: Props) => {
   const { ref, inView } = useInView();
-  //   const fetchImages = async (pageParam: number) => {
-  //     const res = await fetch(
-  //       "https://jsonplaceholder.typicode.com/photos" + pageParam
-  //     );
-  //     return res.json();
-  //     };
-  const fetchTodos = async ({ pageParam }: { pageParam: number }) => {
+
+  const fetchImages = async ({ pageParam }: { pageParam: number }) => {
+    const LIMIT = 24;
     const res = await fetch(
-      `https://jsonplaceholder.typicode.com/todos?_page=${pageParam}`
+      // `https://jsonplaceholder.typicode.com/photos?_page=${pageParam}&_limit=${LIMIT}`
+      `https://api.unsplash.com/photos/?client_id=${process.env.ACCESS_KEY}`
     );
+    if (!res.ok) {
+      throw new Error("Failed to fetch images");
+    }
     return res.json();
   };
+
   const {
     data,
     status,
@@ -32,94 +34,54 @@ const GalleryImages = (props: Props) => {
     isFetchingNextPage,
     hasNextPage,
   } = useInfiniteQuery({
-    queryKey: ["todos"],
-    queryFn: fetchTodos,
+    queryKey: ["getImages"],
+    queryFn: fetchImages,
     initialPageParam: 1,
+
     getNextPageParam: (lastPage, allPages) => {
       const nextPage = lastPage.length ? allPages.length + 1 : undefined;
       return nextPage;
     },
   });
 
-  // const content = data?.pages.map((group, i) => (
-  //   <React.Fragment key={i}>
-  //     {group.map((image: any, index: number) => {
-  //       if (image.length == index + 1) {
-  //         return <div ref={ref}>{image.title}t</div>;
-  //       }
-  //       return <div>{image.title}t</div>;
-  //     })}
-  //   </React.Fragment>
-  // ));
-
   useEffect(() => {
     if (inView && hasNextPage) {
-      console.log("Fire!");
       fetchNextPage();
     }
   }, [inView, hasNextPage, fetchNextPage]);
 
-  if (status === "pending") {
-    return <p>Loading...</p>;
-  }
+  // if (status === "pending") {
+  //   return <p>Loading...</p>;
+  // }
 
   if (status === "error") {
     return <p>Error: {error.message}</p>;
   }
-
-  //   return (
-  //     <div className="grid-cols-1 lg:grid-cols-10   top-14 sticky overflow-y-auto">
-  //       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 3 }}>
-  //         <Masonry gutter="10px">
-  //           {/* Children */}
-  //           {/* {galleryItems.map((item) => (
-  //             <Image
-  //               key={item.id}
-  //               src={item.img}
-  //               alt="masonry list image"
-  //               className="block"
-  //             />
-  //           ))} */}
-  //         </Masonry>
-  //       </ResponsiveMasonry>
-  //     </div>
-  //   );
+  const images = data?.pages.flatMap((page) => page) ?? [];
   return (
-    <div>
-      {data?.pages.map((group, i) => (
-        <div key={i}>
-          {group.map((image: any, index: number) => {
-            if (group.length == index + 1) {
-              return (
-                <div className="text-white h-[250px]" key={index} ref={ref}>
-                  {image.title}
-                </div>
-              );
-            }
-
-            return (
-              <div key={index} className="text-white h-[250px]">
-                {image.title}
-              </div>
-            );
-          })}
-        </div>
-      ))}
-      {/*  */}
-      {isFetchingNextPage && <h3>Loading...</h3>}
-
-      {/* <button
-        ref={ref}
-        disabled={!hasNextPage || isFetchingNextPage}
-        onClick={() => fetchNextPage()}
-      >
-        {isFetchingNextPage
-          ? "Loading more..."
-          : hasNextPage
-          ? "Load More"
-          : "Nothing more to load"}
-      </button> */}
-      <div ref={ref}>...loading more data</div>
+    <div className="mx-auto lg:columns-4 gap-4 columns-2 sm:columns-3" >
+      {images.map((image, i) => {
+        if (i === images.length) {
+          return (
+            <div key={i} ref={ref} className="w-full mb-3 break-inside-avoid">
+              <Image src={image.urls.regular} alt="masonry list image" />
+            </div>
+          );
+        }
+        return (
+          <div key={i} className="w-full mb-3 break-inside-avoid">
+            <Image
+              src={image.urls.regular}
+              alt="masonry list image"
+              className="block"
+            />
+          </div>
+        );
+      })}
+      <div ref={ref} className="mx-auto w-1/2 text-center">
+        ...loading 
+      </div>
+     
     </div>
   );
 };

@@ -16,7 +16,7 @@ export const FeatureCard = ({ name, img, href }: FeatureCardProps) => {
         isFooterBlurred
         isHoverable
         // onPress={() => console.log("item pressed")}
-        className="h-[20rem] w-[18rem] relative bg-background/90   overflow-hidden mx-auto"
+        className="h-[20rem] w-[18rem] lg:h-[15rem] lg:w-[14rem] xl:w-[18rem] xl:h-[20rem] relative bg-background/90   overflow-hidden mx-auto"
       >
         <CardBody className="overflow-visible p-0 w-[18rem]">
           <Image

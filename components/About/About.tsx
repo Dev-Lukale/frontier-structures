@@ -6,7 +6,10 @@ type Props = {};
 
 const About = (props: Props) => {
   return (
-    <section className="flex items-center  bg-background lg:h-screen" id="about" >
+    <section
+      className="flex items-center py-8  bg-background xl:h-screen "
+      id="about"
+    >
       <div className="justify-center flex-1 max-w-7xl py-4 mx-auto px-6">
         <div className="flex flex-wrap items-center ">
           <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
@@ -26,9 +29,15 @@ const About = (props: Props) => {
           </div>
           <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
             {sectionLinks.map((item) => {
-              return <Card key={item.id} name={item.name} href={item.href} content={item.content} />;
+              return (
+                <Card
+                  key={item.id}
+                  name={item.name}
+                  href={item.href}
+                  content={item.content}
+                />
+              );
             })}
-            
           </div>
         </div>
       </div>
